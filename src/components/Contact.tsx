@@ -33,11 +33,17 @@ export default function Contact() {
 
     playSound.playLoading();
     setStatus("submitting");
+
+    const mailtoUrl = `mailto:${portfolioData.email}?subject=${encodeURIComponent(
+      `[Portfolio Connect] ${formData.subject} - ${formData.name}`
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`
+    )}`;
     
-    // Simulate submission
     setTimeout(() => {
+      window.location.href = mailtoUrl;
       setStatus("success");
-    }, 1500);
+    }, 1000);
   };
 
   const handleReset = () => {
