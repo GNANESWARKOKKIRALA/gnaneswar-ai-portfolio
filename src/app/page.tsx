@@ -10,6 +10,7 @@ import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
+import ClickSpark from "@/components/ClickSpark";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -42,6 +43,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen relative text-slate-200">
+      {/* Global interactive particle spark onClick ripple */}
+      <ClickSpark />
+
       {/* Stripe-style Flowing Mesh Backdrop */}
       <div className="mesh-gradient-container">
         <div className="mesh-bubble mesh-bubble-1" />

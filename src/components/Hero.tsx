@@ -46,21 +46,63 @@ export default function Hero() {
 
           {/* Name & Title */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
             className="space-y-3"
           >
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none text-white">
-              Python &
-              <br />
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                Gen AI Engineer
+            <motion.h1
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.12,
+                    delayChildren: 0.15
+                  }
+                }
+              }}
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none text-white flex flex-col gap-2"
+            >
+              <span className="flex flex-wrap gap-x-2 sm:gap-x-3">
+                {["Python", "&"].map((word, i) => (
+                  <motion.span
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } }
+                    }}
+                    className="inline-block"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
               </span>
-            </h1>
-            <p className="font-display text-base sm:text-lg font-medium tracking-wide text-slate-400 mt-2">
+              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent flex flex-wrap gap-x-2 sm:gap-x-3">
+                {["Gen", "AI", "Engineer"].map((word, i) => (
+                  <motion.span
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } }
+                    }}
+                    className="inline-block"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="font-display text-base sm:text-lg font-medium tracking-wide text-slate-400 mt-2"
+            >
               {portfolioData.fullName} {"//"} B.Tech CSE Graduate 2026
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* Objective Statement */}
@@ -80,67 +122,79 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-wrap items-center gap-4 mt-8"
           >
-            <button
+            <motion.button
               onClick={() => scrollSection("projects")}
               onMouseEnter={() => playSound.playHover()}
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
               className="px-6 py-3 rounded-full bg-white text-black font-sans font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:bg-slate-200 shadow-[0_4px_20px_rgba(255,255,255,0.15)] flex items-center gap-2 group cursor-pointer"
             >
               Explore Projects
               <ArrowDownRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
-            </button>
+            </motion.button>
 
-            <a
+            <motion.a
               href="/Gnaneswar_Kokkirala_resume.pdf"
               download="Gnaneswar_Kokkirala_Resume.pdf"
               onClick={() => playSound.playClick()}
               onMouseEnter={() => playSound.playHover()}
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
               className="px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:border-white/20 text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all duration-300 flex items-center gap-2 group cursor-pointer backdrop-blur-sm"
             >
               <Download className="h-4 w-4 text-indigo-400 group-hover:animate-bounce" />
               Download Resume
-            </a>
+            </motion.a>
 
-            <button
+            <motion.button
               onClick={() => scrollSection("contact")}
               onMouseEnter={() => playSound.playHover()}
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
               className="px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:border-white/20 text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all duration-300 flex items-center gap-2 group cursor-pointer backdrop-blur-sm"
             >
               <Terminal className="h-4 w-4 text-indigo-400 group-hover:animate-pulse" />
               Inference Console
-            </button>
+            </motion.button>
 
             <div className="flex items-center gap-3 ml-2 sm:ml-4 border-l border-white/10 pl-4 sm:pl-6 h-8">
-              <a
+              <motion.a
                 href={portfolioData.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playSound.playClick()}
                 onMouseEnter={() => playSound.playHover()}
+                whileHover={{ scale: 1.15, y: -3, rotate: 6 }}
+                whileTap={{ scale: 0.9 }}
                 className="text-slate-400 hover:text-white transition-colors duration-200"
                 title="GitHub Profile"
               >
                 <Github className="h-5 w-5" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={portfolioData.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playSound.playClick()}
                 onMouseEnter={() => playSound.playHover()}
+                whileHover={{ scale: 1.15, y: -3, rotate: -6 }}
+                whileTap={{ scale: 0.9 }}
                 className="text-slate-400 hover:text-white transition-colors duration-200"
                 title="LinkedIn Profile"
               >
                 <Linkedin className="h-5 w-5" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={`mailto:${portfolioData.email}`}
                 onClick={() => playSound.playClick()}
                 onMouseEnter={() => playSound.playHover()}
+                whileHover={{ scale: 1.15, y: -3, rotate: 6 }}
+                whileTap={{ scale: 0.9 }}
                 className="text-slate-400 hover:text-white transition-colors duration-200"
                 title="Send Email"
               >
                 <Mail className="h-5 w-5" />
-              </a>
+              </motion.a>
             </div>
           </motion.div>
 
