@@ -73,11 +73,11 @@ export default function FloatingNav({ activeSection, setActiveSection }: Floatin
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[92%] sm:w-auto`}
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[96%] sm:w-auto`}
     >
       <nav
-        className={`glass-nav rounded-full px-3 py-2 flex items-center justify-around sm:justify-center gap-1 sm:gap-2 transition-all duration-300 ${
-          isScrolled ? "bg-opacity-80 py-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]" : "bg-opacity-40"
+        className={`glass-nav rounded-2xl sm:rounded-full px-2 py-1.5 sm:px-3 sm:py-2 flex items-center justify-between sm:justify-center gap-0.5 sm:gap-2 transition-all duration-300 w-full sm:w-auto ${
+          isScrolled ? "bg-opacity-80 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.4)]" : "bg-opacity-40"
         }`}
       >
         {/* Subtle Brand Logo */}
@@ -101,34 +101,32 @@ export default function FloatingNav({ activeSection, setActiveSection }: Floatin
               key={item.id}
               onClick={() => handleNavClick(item.id)}
               onMouseEnter={() => playSound.playHover()}
-              className="relative px-3.5 py-2 rounded-full text-xs font-medium tracking-wide transition-all duration-300 flex items-center gap-1.5 outline-none group"
+              className="relative px-1 py-1 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-full text-[8px] sm:text-xs font-medium tracking-wide transition-all duration-300 flex flex-col sm:flex-row items-center gap-0.5 sm:gap-1.5 outline-none group flex-1 sm:flex-initial text-center"
             >
               {/* Active Background Slide */}
               {isActive && (
                 <motion.span
                   layoutId="activePill"
-                  className="absolute inset-0 bg-white/10 rounded-full border border-white/10 -z-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]"
+                  className="absolute inset-0 bg-white/10 rounded-xl sm:rounded-full border border-white/10 -z-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
 
               {/* Icon */}
               <Icon
-                className={`h-4 w-4 transition-colors duration-300 ${
+                className={`h-3.5 w-3.5 sm:h-4 sm:w-4 transition-colors duration-300 ${
                   isActive ? "text-indigo-400" : "text-slate-400 group-hover:text-slate-200"
                 }`}
               />
 
               {/* Label */}
               <span
-                className={`hidden sm:inline transition-colors duration-300 font-sans ${
+                className={`transition-colors duration-300 font-sans text-[7.5px] xs:text-[8px] sm:text-xs tracking-tight sm:tracking-normal ${
                   isActive ? "text-white font-semibold" : "text-slate-400 group-hover:text-slate-200"
                 }`}
               >
                 {item.label}
               </span>
-
-
             </button>
           );
         })}
