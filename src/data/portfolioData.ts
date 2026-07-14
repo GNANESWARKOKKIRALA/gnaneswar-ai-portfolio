@@ -107,10 +107,11 @@ export const portfolioData: PortfolioData = {
       ],
     },
     {
-      category: "Frontend Basics",
+      category: "Frontend",
       skills: [
-        { name: "HTML", relation: ["CSS"] },
-        { name: "CSS", relation: ["HTML"] },
+        { name: "HTML", relation: ["CSS", "JavaScript"] },
+        { name: "CSS", relation: ["HTML", "JavaScript"] },
+        { name: "JavaScript", relation: ["HTML", "CSS"] },
       ],
     },
     {
