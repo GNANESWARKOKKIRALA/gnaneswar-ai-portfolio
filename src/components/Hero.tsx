@@ -50,11 +50,11 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="space-y-3"
           >
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none text-white">
-              Python &
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight leading-none text-white">
+              Full Stack Python &
               <br />
               <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                Gen AI Engineer
+                Generative AI Developer
               </span>
             </h1>
             <p className="font-display text-base sm:text-lg font-medium tracking-wide text-slate-400 mt-2">
