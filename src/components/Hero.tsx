@@ -155,27 +155,134 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center mb-8 group"
           >
-            {/* Soft glowing ambient rings */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-cyan-500/10 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+            {/* Soft glowing ambient rings (circular) */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-cyan-500/20 rounded-full blur-3xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
             
-            {/* Outer spinning dash line ring */}
-            <div className="absolute -inset-4 border border-dashed border-indigo-500/20 rounded-full animate-[spin_32s_linear_infinite]" />
+            {/* Outer Rotating HUD Coil (Clockwise) */}
+            <motion.svg
+              className="absolute -inset-8 w-[calc(100%+64px)] h-[calc(100%+64px)] pointer-events-none z-0"
+              viewBox="0 0 100 100"
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+            >
+              <defs>
+                <linearGradient id="cyber-coil-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#6366f1" stopOpacity="0.8" />
+                  <stop offset="50%" stopColor="#a855f7" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
+                </linearGradient>
+              </defs>
+              {/* Concentric broken outer ring */}
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                stroke="url(#cyber-coil-grad-1)"
+                strokeWidth="1.2"
+                fill="none"
+                strokeDasharray="15 8 5 8 40 10"
+                className="opacity-60 drop-shadow-[0_0_6px_rgba(99,102,241,0.5)]"
+              />
+              {/* Orbiting tech ticks */}
+              <circle
+                cx="50"
+                cy="50"
+                r="42"
+                stroke="#6366f1"
+                strokeWidth="0.6"
+                fill="none"
+                strokeDasharray="2 12"
+                className="opacity-40"
+              />
+            </motion.svg>
+
+            {/* Middle Rotating HUD Coil (Counter-Clockwise) */}
+            <motion.svg
+              className="absolute -inset-5 w-[calc(100%+40px)] h-[calc(100%+40px)] pointer-events-none z-0"
+              viewBox="0 0 100 100"
+              animate={{ rotate: -360 }}
+              transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
+            >
+              <defs>
+                <linearGradient id="cyber-coil-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.9" />
+                  <stop offset="50%" stopColor="#6366f1" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#ec4899" stopOpacity="0.9" />
+                </linearGradient>
+              </defs>
+              {/* Futuristic cog/coil-style ring */}
+              <circle
+                cx="50"
+                cy="50"
+                r="46"
+                stroke="url(#cyber-coil-grad-2)"
+                strokeWidth="1.8"
+                fill="none"
+                strokeDasharray="8 6"
+                className="opacity-50 drop-shadow-[0_0_4px_rgba(6,182,212,0.4)]"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="43"
+                stroke="#06b6d4"
+                strokeWidth="0.8"
+                fill="none"
+                strokeDasharray="80 20 40 20"
+                className="opacity-70"
+              />
+            </motion.svg>
+
+            {/* Inner Cyber Border (Clockwise) */}
+            <motion.svg
+              className="absolute -inset-2.5 w-[calc(100%+20px)] h-[calc(100%+20px)] pointer-events-none z-0"
+              viewBox="0 0 100 100"
+              animate={{ rotate: 180 }}
+              transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+            >
+              <circle
+                cx="50"
+                cy="50"
+                r="47"
+                stroke="#a855f7"
+                strokeWidth="1"
+                fill="none"
+                strokeDasharray="4 20 15 10"
+                className="opacity-50"
+              />
+            </motion.svg>
             
-            {/* Primary glass photo card */}
-            <div className="relative w-full h-full rounded-2xl border border-white/10 overflow-hidden shadow-2xl transition-all duration-500 group-hover:border-indigo-500/30 group-hover:scale-[1.01]">
+            {/* Circular glass photo container */}
+            <div className="relative w-full h-full rounded-full border-2 border-white/10 overflow-hidden shadow-[0_0_30px_rgba(99,102,241,0.25)] transition-all duration-500 group-hover:border-cyan-400/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_40px_rgba(6,182,212,0.4)] z-10 bg-slate-950/80">
               <img
                 src="/profile.png"
                 alt={portfolioData.fullName}
-                className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover rounded-full scale-100 group-hover:scale-105 grayscale-[10%] group-hover:grayscale-0 transition-all duration-500"
               />
               
-              {/* Bottom gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+              {/* Bottom gradient overlay adapted for circle */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+
+              {/* Moving laser scan line */}
+              <motion.div
+                className="absolute left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_10px_rgba(6,182,212,0.8)] opacity-60 pointer-events-none"
+                animate={{
+                  top: ["0%", "100%", "0%"]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              {/* Tech grid overlay to enhance cyber look */}
+              <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:8px_8px] mix-blend-overlay pointer-events-none opacity-60" />
             </div>
 
-            {/* Orbiting detail nodes */}
-            <div className="absolute -top-2 -left-2 w-3 h-3 rounded-full bg-indigo-500 shadow-[0_0_8px_#6366f1] animate-pulse" />
-            <div className="absolute -bottom-2 -right-2 w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4] animate-pulse" style={{ animationDelay: "1s" }} />
+            {/* Orbiting detail nodes on the circle bounds */}
+            <div className="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_8px_#6366f1] animate-pulse z-20 border border-white/10" />
+            <div className="absolute bottom-1 left-1 w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4] animate-pulse z-20 border border-white/10" style={{ animationDelay: "1s" }} />
           </motion.div>
         </div>
 
