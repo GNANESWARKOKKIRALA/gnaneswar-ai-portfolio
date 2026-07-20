@@ -145,202 +145,22 @@ export default function Hero() {
 
         </div>
 
-        {/* Right Column: Dynamic glowing brain/orb core and System Telemetry */}
+        {/* Right Column: Clean LinkedIn-style professional square portrait */}
         <div className="lg:col-span-5 flex flex-col items-center justify-center mt-8 lg:mt-0">
           
-          {/* Animated Profile Photo with AI Glow Effects */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center mb-8 group"
+            className="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center mb-8"
           >
-            {/* Subtle blue/cyan pulsing glowing effect behind the square */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-tr from-cyan-500/15 to-blue-500/15 rounded-3xl blur-3xl pointer-events-none"
-              animate={{
-                opacity: [0.4, 0.7, 0.4],
-                scale: [0.95, 1.05, 0.95],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-
-            {/* Radar/Sonar Pulse Effect (Digital Pulses) - Square shape */}
-            <motion.div
-              className="absolute inset-0 rounded-2xl border border-cyan-500/25 pointer-events-none z-0"
-              animate={{
-                scale: [1, 1.12, 1.25],
-                opacity: [0.6, 0.3, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeOut",
-              }}
-            />
-            <motion.div
-              className="absolute inset-0 rounded-2xl border border-purple-500/20 pointer-events-none z-0"
-              animate={{
-                scale: [1, 1.16, 1.32],
-                opacity: [0.4, 0.15, 0],
-              }}
-              transition={{
-                duration: 4,
-                delay: 2,
-                repeat: Infinity,
-                ease: "easeOut",
-              }}
-            />
-
-            {/* Futuristic Multi-Layered HUD SVG (Placed at z-20 on top of the card so it is not clipped/covered) */}
-            <svg
-              className="absolute -inset-6 w-[calc(100%+48px)] h-[calc(100%+48px)] pointer-events-none z-20"
-              viewBox="0 0 100 100"
-            >
-              <defs>
-                {/* Neon Cyan to Purple gradients */}
-                <linearGradient id="hud-outer-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#22d3ee" /> {/* Neon Cyan */}
-                  <stop offset="50%" stopColor="#3b82f6" /> {/* Neon Blue */}
-                  <stop offset="100%" stopColor="#c084fc" /> {/* Purple */}
-                </linearGradient>
-                <linearGradient id="hud-inner-grad" x1="100%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#c084fc" /> {/* Purple */}
-                  <stop offset="50%" stopColor="#3b82f6" /> {/* Neon Blue */}
-                  <stop offset="100%" stopColor="#22d3ee" /> {/* Neon Cyan */}
-                </linearGradient>
-              </defs>
-
-              {/* 1. Outer Ring: Clockwise rotation */}
-              <motion.g
-                style={{ transformOrigin: "50px 50px" }}
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-              >
-                {/* Thick segmented outer ring */}
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="46"
-                  stroke="url(#hud-outer-grad)"
-                  strokeWidth="1.8"
-                  fill="none"
-                  strokeDasharray="40 10 15 8 75 12 30 10"
-                  className="opacity-90 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]"
-                />
-                
-                {/* Dotted tracking orbit ring */}
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="47.5"
-                  stroke="#22d3ee"
-                  strokeWidth="0.4"
-                  fill="none"
-                  strokeDasharray="2 6"
-                  className="opacity-50"
-                />
-
-                {/* Orbiting glowing particle 1 */}
-                <circle
-                  cx="50"
-                  cy="4"
-                  r="1.2"
-                  fill="#22d3ee"
-                  className="drop-shadow-[0_0_5px_#22d3ee]"
-                />
-              </motion.g>
-
-              {/* 2. Inner Ring: Counter-clockwise rotation */}
-              <motion.g
-                style={{ transformOrigin: "50px 50px" }}
-                animate={{ rotate: -360 }}
-                transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
-              >
-                {/* Inner Segmented Ring */}
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="42"
-                  stroke="url(#hud-inner-grad)"
-                  strokeWidth="1.2"
-                  fill="none"
-                  strokeDasharray="25 15 50 10 15 12 40 8"
-                  className="opacity-80 drop-shadow-[0_0_6px_rgba(192,132,252,0.5)]"
-                />
-
-                {/* Inner dotted accent line */}
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="40.5"
-                  stroke="#c084fc"
-                  strokeWidth="0.4"
-                  fill="none"
-                  strokeDasharray="1 4"
-                  className="opacity-45"
-                />
-
-                {/* Orbiting glowing particle 2 */}
-                <circle
-                  cx="50"
-                  cy="8"
-                  r="1"
-                  fill="#e879f9"
-                  className="drop-shadow-[0_0_4px_#e879f9]"
-                />
-              </motion.g>
-            </svg>
-
-            {/* Static Telemetry Ticks / Outer Crosshair accents */}
-            <div className="absolute inset-0 pointer-events-none z-10 scale-105 opacity-80">
-              <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-cyan-400/40" />
-              <div className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-cyan-400/40" />
-              <div className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-cyan-400/40" />
-              <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-cyan-400/40" />
-            </div>
-
-            {/* Square DP Container (Transparent background outside, perfect border, soft glow) */}
-            <div className="relative w-full h-full rounded-2xl border border-cyan-500/20 overflow-hidden shadow-[0_0_25px_rgba(6,182,212,0.25)] transition-all duration-500 group-hover:border-cyan-400/45 group-hover:shadow-[0_0_35px_rgba(34,211,238,0.45)] z-10 bg-slate-950/40 backdrop-blur-[2px]">
+            {/* Square DP Container - Clean borderless layout */}
+            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl z-10 bg-slate-900">
               <img
                 src="/profile.png"
                 alt={portfolioData.fullName}
-                style={{ transform: "scale(1.3)", transformOrigin: "center 36%" }}
-                className="w-full h-full object-cover rounded-2xl transition-all duration-500"
+                className="w-full h-full object-cover rounded-2xl"
               />
-
-              {/* Scanning light sweeps */}
-              <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none z-20">
-                <motion.div
-                  className="absolute inset-x-0 h-10 bg-gradient-to-b from-transparent via-cyan-400/10 to-transparent"
-                  animate={{
-                    top: ["-25%", "110%"]
-                  }}
-                  transition={{
-                    duration: 4.5,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
-                <motion.div
-                  className="absolute inset-x-0 h-[1.5px] bg-cyan-400/30 shadow-[0_0_6px_rgba(34,211,238,0.5)]"
-                  animate={{
-                    top: ["-25%", "110%"]
-                  }}
-                  transition={{
-                    duration: 4.5,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
-              </div>
-
-              {/* Soft overlay gradient to blend bottom edge */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
             </div>
           </motion.div>
         </div>
