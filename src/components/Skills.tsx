@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { BrainCircuit, Cpu, Database, Network, Code, Settings } from "lucide-react";
+import { BrainCircuit, Cpu, Database, Network, Code, Settings, Terminal, Workflow, Binary } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
 import { playSound } from "@/utils/soundEffects";
 
@@ -27,6 +27,90 @@ export default function Skills() {
       return <Code className="h-5 w-5 text-blue-400" />;
     }
     return <Settings className="h-5 w-5 text-emerald-400" />;
+  };
+
+  // Small logo selector for individual skills
+  const getSkillIcon = (name: string) => {
+    const skill = name.toLowerCase();
+    
+    // Programming Languages & Databases
+    if (skill === "python") {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" className="h-4 w-4 object-contain" />;
+    }
+    if (skill.includes("sql")) {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt="SQL Server" className="h-4 w-4 object-contain" />;
+    }
+    
+    // Generative AI & LLMs
+    if (skill.includes("openai")) {
+      return <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/openai.svg" alt="OpenAI" className="h-4 w-4 object-contain invert" />;
+    }
+    if (skill.includes("langchain")) {
+      return <img src="https://raw.githubusercontent.com/langchain-ai/langchain/main/docs/static/img/langchain_logo.png" alt="LangChain" className="h-4 w-4 object-contain rounded" />;
+    }
+    if (skill.includes("llamaindex")) {
+      return <span className="h-4 w-4 flex items-center justify-center text-[10px] font-bold bg-amber-500/10 text-amber-400 rounded-md border border-amber-500/20">🦙</span>;
+    }
+    if (skill.includes("rag") || skill.includes("retrieval")) {
+      return <Network className="h-3.5 w-3.5 text-cyan-400" />;
+    }
+    if (skill.includes("prompt")) {
+      return <Terminal className="h-3.5 w-3.5 text-purple-400" />;
+    }
+    if (skill.includes("agent") || skill.includes("workflow")) {
+      return <Workflow className="h-3.5 w-3.5 text-indigo-400" />;
+    }
+    if (skill.includes("vector") || skill.includes("database")) {
+      return <Database className="h-3.5 w-3.5 text-blue-400" />;
+    }
+    if (skill.includes("groq")) {
+      return <Cpu className="h-3.5 w-3.5 text-orange-400" />;
+    }
+    
+    // Libraries & Fundamentals
+    if (skill === "numpy") {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" className="h-4 w-4 object-contain" />;
+    }
+    if (skill === "pandas") {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" className="h-4 w-4 object-contain" />;
+    }
+    if (skill === "scikit-learn") {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-Learn" className="h-4 w-4 object-contain" />;
+    }
+    if (skill === "matplotlib") {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" className="h-4 w-4 object-contain" />;
+    }
+    if (skill === "git") {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" className="h-4 w-4 object-contain" />;
+    }
+    if (skill.includes("machine learning") || skill.includes("deep learning") || skill.includes("neural")) {
+      return <BrainCircuit className="h-3.5 w-3.5 text-violet-400" />;
+    }
+    if (skill.includes("structure") || skill.includes("algorithm")) {
+      return <Binary className="h-3.5 w-3.5 text-cyan-400" />;
+    }
+    
+    // Frontend
+    if (skill === "html") {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" className="h-4 w-4 object-contain" />;
+    }
+    if (skill === "css") {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" className="h-4 w-4 object-contain" />;
+    }
+    if (skill === "javascript") {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" className="h-4 w-4 object-contain rounded-sm" />;
+    }
+    
+    // Tools & IDEs
+    if (skill.includes("code") || skill.includes("studio")) {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code" className="h-4 w-4 object-contain" />;
+    }
+    if (skill === "github") {
+      return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" className="h-4 w-4 object-contain invert" />;
+    }
+    
+    // Fallback icon
+    return <Cpu className="h-3.5 w-3.5 text-indigo-400" />;
   };
 
   return (
@@ -79,8 +163,9 @@ export default function Skills() {
                       key={skill.name}
                       onClick={() => playSound.playClick()}
                       onMouseEnter={() => playSound.playHover()}
-                      className="px-4 py-2 rounded-xl text-sm font-sans font-semibold border border-white/10 bg-white/5 text-slate-200 tracking-wide transition-all duration-300 select-none cursor-default hover:bg-gradient-to-r hover:from-indigo-500/20 hover:to-purple-500/20 hover:border-indigo-400 hover:text-white hover:shadow-[0_0_15px_rgba(99,102,241,0.25)] hover:scale-[1.03]"
+                      className="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-sans font-semibold border border-white/10 bg-white/5 text-slate-200 tracking-wide transition-all duration-300 select-none cursor-default hover:bg-gradient-to-r hover:from-indigo-500/20 hover:to-purple-500/20 hover:border-indigo-400 hover:text-white hover:shadow-[0_0_15px_rgba(99,102,241,0.25)] hover:scale-[1.03] flex items-center gap-2"
                     >
+                      {getSkillIcon(skill.name)}
                       {skill.name}
                     </button>
                   ))}
