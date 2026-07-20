@@ -154,21 +154,6 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center mb-8"
           >
-            {/* Large blurred moving gradient blob (blue -> purple -> cyan) */}
-            <motion.div
-              className="absolute -inset-10 bg-gradient-to-tr from-blue-600 via-purple-600 to-cyan-500 rounded-[40%] blur-[50px] opacity-60 pointer-events-none z-0"
-              animate={{
-                scale: [1, 1.15, 0.9, 1.05, 1],
-                rotate: [0, 90, 180, 270, 360],
-                borderRadius: ["40%", "45%", "35%", "50%", "40%"],
-              }}
-              transition={{
-                duration: 15,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
-
             {/* Square DP Container - Clean borderless layout */}
             <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl z-10 bg-slate-900">
               <img
