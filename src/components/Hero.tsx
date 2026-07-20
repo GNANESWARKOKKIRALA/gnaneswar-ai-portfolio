@@ -263,19 +263,6 @@ export default function Hero() {
               {/* Bottom gradient overlay adapted for circle */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
 
-              {/* Moving laser scan line */}
-              <motion.div
-                className="absolute left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_10px_rgba(6,182,212,0.8)] opacity-60 pointer-events-none"
-                animate={{
-                  top: ["0%", "100%", "0%"]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-
               {/* Tech grid overlay to enhance cyber look */}
               <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:8px_8px] mix-blend-overlay pointer-events-none opacity-60" />
             </div>
