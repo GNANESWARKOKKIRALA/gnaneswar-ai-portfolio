@@ -63,7 +63,7 @@ export const portfolioData: PortfolioData = {
   title: "AI Engineer & Software Creator",
   email: "gnaneswarkokkirala@gmail.com",
   phone: "+91 6309764875",
-  location: "Chilakaluripet, Andhra Pradesh, India",
+  location: "Hyderabad, Telangana, India",
   socials: {
     github: "https://github.com/GNANESWARKOKKIRALA",
     linkedin: "https://www.linkedin.com/in/gnaneswar-kokkirala-9562a2315/",
