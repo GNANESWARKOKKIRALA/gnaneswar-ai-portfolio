@@ -196,9 +196,9 @@ export default function Hero() {
               }}
             />
 
-            {/* Futuristic Multi-Layered HUD SVG */}
+            {/* Futuristic Multi-Layered HUD SVG (Placed at z-20 on top of the card so it is not clipped/covered) */}
             <svg
-              className="absolute -inset-6 w-[calc(100%+48px)] h-[calc(100%+48px)] pointer-events-none z-0"
+              className="absolute -inset-6 w-[calc(100%+48px)] h-[calc(100%+48px)] pointer-events-none z-20"
               viewBox="0 0 100 100"
             >
               <defs>
@@ -309,7 +309,8 @@ export default function Hero() {
               <img
                 src="/profile.png"
                 alt={portfolioData.fullName}
-                className="w-full h-full object-cover rounded-2xl scale-[1.55] object-[center_36%] transition-all duration-500"
+                style={{ transform: "scale(1.3)", transformOrigin: "center 36%" }}
+                className="w-full h-full object-cover rounded-2xl transition-all duration-500"
               />
 
               {/* Scanning light sweeps */}
