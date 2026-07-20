@@ -69,7 +69,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-sans text-sm sm:text-base text-slate-400 leading-relaxed max-w-xl mt-6"
           >
-            A Computer Science & Engineering graduate from Tirumala Engineering College. Specialized in Python software engineering, relational database schemas, and RAG-powered LLM applications. Developed production-ready document Q&A agents and personalized fitness recommendation models during academic labs and internship training.
+            A Computer Science & Engineering graduate from Tirumala Engineering College, specializing in Full Stack Python & Generative AI development. Experienced in building relational database schemas and deploying RAG-powered LLM applications. Developed production-ready document Q&A agents and personalized fitness recommendation models during academic labs and internship training.
           </motion.p>
 
           {/* Call to action & Socials */}

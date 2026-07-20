@@ -70,7 +70,7 @@ export const portfolioData: PortfolioData = {
     portfolio: "https://gnaneswar-portfolio91.netlify.app/",
   },
   objective:
-    "Aspiring Software Engineer with knowledge of Python, SQL, and Generative AI, and hands-on experience building RAG-powered LLM applications, seeking to contribute to innovative and scalable solutions.",
+    "A Computer Science & Engineering graduate from Tirumala Engineering College, specializing in Full Stack Python & Generative AI development. Experienced in building relational database schemas and deploying RAG-powered LLM applications.",
   skills: [
     {
       category: "Programming Languages & Databases",
