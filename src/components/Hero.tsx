@@ -145,22 +145,102 @@ export default function Hero() {
 
         </div>
 
-        {/* Right Column: Clean LinkedIn-style professional square portrait */}
+        {/* Right Column: Circular profile portrait with revolving animation rings */}
         <div className="lg:col-span-5 flex flex-col items-center justify-center mt-8 lg:mt-0">
           
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center mb-8"
+            className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center mb-8"
           >
-            {/* Square DP Container - Clean borderless layout */}
-            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl z-10 bg-slate-900">
-              <img
-                src="/profile.png"
-                alt={portfolioData.fullName}
-                className="w-full h-full object-cover rounded-2xl"
-              />
+            {/* Soft Glowing Purple Background Aura */}
+            <div className="absolute inset-6 rounded-full bg-gradient-to-tr from-purple-900/60 via-indigo-600/40 to-purple-500/30 blur-2xl pointer-events-none" />
+
+            {/* Revolving Outer SVG Rings */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
+              viewBox="0 0 100 100"
+            >
+              {/* Outer Revolving Ring 1 - Clockwise */}
+              <motion.g
+                style={{ transformOrigin: "50px 50px" }}
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="48"
+                  stroke="rgba(168, 85, 247, 0.4)"
+                  strokeWidth="0.5"
+                  fill="none"
+                  strokeDasharray="40 20 80 15"
+                />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="48"
+                  stroke="rgba(34, 211, 238, 0.6)"
+                  strokeWidth="0.8"
+                  fill="none"
+                  strokeDasharray="15 120"
+                />
+              </motion.g>
+
+              {/* Middle Revolving Ring 2 - Counter Clockwise */}
+              <motion.g
+                style={{ transformOrigin: "50px 50px" }}
+                animate={{ rotate: -360 }}
+                transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45.5"
+                  stroke="rgba(192, 132, 252, 0.5)"
+                  strokeWidth="0.6"
+                  fill="none"
+                  strokeDasharray="60 30 20 40"
+                />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45.5"
+                  stroke="rgba(59, 130, 246, 0.7)"
+                  strokeWidth="0.8"
+                  fill="none"
+                  strokeDasharray="10 140"
+                />
+              </motion.g>
+
+              {/* Inner Revolving Accent Ring 3 - Clockwise */}
+              <motion.g
+                style={{ transformOrigin: "50px 50px" }}
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 32, ease: "linear" }}
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="43"
+                  stroke="rgba(147, 51, 234, 0.35)"
+                  strokeWidth="0.4"
+                  fill="none"
+                  strokeDasharray="100 20"
+                />
+              </motion.g>
+            </svg>
+
+            {/* Glowing Purple/Cyan Gradient Ring Frame */}
+            <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full p-[4px] bg-gradient-to-tr from-purple-600 via-indigo-500 to-cyan-400 shadow-[0_0_50px_rgba(147,51,234,0.5)] z-10 flex items-center justify-center">
+              <div className="w-full h-full rounded-full overflow-hidden bg-slate-900">
+                <img
+                  src="/profile.png"
+                  alt={portfolioData.fullName}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
             </div>
           </motion.div>
         </div>
