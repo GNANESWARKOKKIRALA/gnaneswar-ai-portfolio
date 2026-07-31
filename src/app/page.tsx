@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import CanvasBackground from "@/components/CanvasBackground";
 import FloatingNav from "@/components/FloatingNav";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -48,9 +47,6 @@ export default function Home() {
         <div className="mesh-bubble mesh-bubble-2" />
         <div className="mesh-bubble mesh-bubble-3" />
       </div>
-
-      {/* Interactive canvas background */}
-      <CanvasBackground />
 
       {/* Floating pill navigation */}
       <FloatingNav activeSection={activeSection} setActiveSection={setActiveSection} />
